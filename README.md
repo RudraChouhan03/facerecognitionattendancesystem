@@ -6,6 +6,19 @@ A robust, real-time **face recognition-based attendance system** built with **Fl
 
 This system enables **automatic, contactless attendance marking** using facial recognition. It captures live video from a camera (webcam or CCTV), detects and recognizes faces, and logs attendance with timestamps. The web dashboard allows user registration, attendance monitoring, CSV export, and more.
 
+This project is designed to work with both CCTV cameras and a laptop webcam.
+
+- By default, the system uses your laptop webcam for face recognition and attendance.
+- To use a CCTV camera as the video source:
+
+* Check the real_time_recognition.py file, where the code for CCTV integration is provided.
+
+* In the real_time_attendance.py file, simply uncomment the relevant CCTV camera code and comment out the camera_indices (webcam) code.
+
+* No other changes are needed in any files.
+
+This makes it easy to switch between webcam and CCTV sources based on your setup.
+
 **Key Features:**
 - Real-time face detection and recognition (OpenCV, face_recognition)
 - Liveness detection (anti-spoofing)

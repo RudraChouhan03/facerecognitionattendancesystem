@@ -9,6 +9,7 @@ This system enables **automatic, contactless attendance marking** using facial r
 This project is designed to work with both CCTV cameras and a laptop webcam.
 
 - By default, the system uses your laptop webcam for face recognition and attendance.
+
 - To use a CCTV camera as the video source:
 
 * Check the real_time_recognition.py file, where the code for CCTV integration is provided.

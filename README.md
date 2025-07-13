@@ -62,12 +62,14 @@ face_recognision/                         # 🔸 Main project folder
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/face-attendance-flask.git
+git clone https://github.com/RudraChouhan03/facerecognitionattendancesystem.git
 cd face-attendance-flask
 ```
 
 2. **Set Up a Virtual Environment**
+
 **Note:**  
+
 *face_recognition* is built on dlib, which does NOT yet support Python ≥ **3.11** reliably. *dlib* last stable builds work well up to Python **3.10**, newer versions are unstable or unavailable for 3.11+
 
 ```bash
@@ -85,9 +87,11 @@ pip install -r requirements.txt
 ```
 
 **Note:**
+
 apart from these libraries you also need to install **Visual studio installer** from the browser and after downloading, inside it tick the desktop developement with c++ and under installation details appeared on right sidebar, under optional tick these: MSVC v143 - VS 2022 C++ x64/x86 build..., Windows 11 SDK (10.0.26100.3916), C++ CMake tools for Windows, Testing tools core features - Build Tools, C++ AddressSanitizer and , vcpkg package manager
 
 4. **Prepare Required Directories**
+
 Ensure these folders exist (create if missing):
 - `dashboard/`
 - `database/`
@@ -99,6 +103,7 @@ Ensure these folders exist (create if missing):
 
 
 5. **Download & Place Models**
+
 Put YuNet and liveness models inside the `models/` folder.
 
 6. **Start the Application**
@@ -154,7 +159,9 @@ Password: rudra123
 
 ---
 
-**Contributions welcome!** Feel free to fork, raise issues, or submit PRs.
+**Contributions welcome!** 
+
+Feel free to fork, raise issues, or submit PRs.
 
 ## 📞 Contact
 

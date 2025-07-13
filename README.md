@@ -20,6 +20,10 @@ This project is designed to work with both CCTV cameras and a laptop webcam.
 
 This makes it easy to switch between webcam and CCTV sources based on your setup.
 
+To make this project accessible to everyone—including non-technical users—I have included clear single-line and multi-line comments throughout every file. These comments explain the purpose and functionality of the code step by step, making it easy to understand and modify.
+
+Special thanks to Perplexity AI for assisting me in generating and refining these comments for maximum clarity.
+
 **Key Features:**
 - Real-time face detection and recognition (OpenCV, face_recognition)
 - Liveness detection (anti-spoofing)

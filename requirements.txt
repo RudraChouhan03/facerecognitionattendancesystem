@@ -1,0 +1,11 @@
+opencv-python
+face-recognition
+dlib
+numpy
+pandas
+flask
+pyttsx3
+tabulate
+scipy
+onnxruntime
+Werkzeug

@@ -4,253 +4,185 @@
     <meta charset="UTF-8">
     <title>Face Recognition Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap 5 CSS for styling components -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts for clean typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Feather Icons for vector icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    <style>
-        /* Overall page styling */
-        body {
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap 5 CSS for styling components -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> <!-- Google Fonts for clean typography -->
+    <script src="https://unpkg.com/feather-icons"></script> <!-- Feather Icons for vector icons -->
+    <style> 
+        body {     /* Overall page styling */
             font-family: 'Inter', Arial, sans-serif;
             background: linear-gradient(120deg, #f8fafc 0%, #e9ecef 100%);
             min-height: 100vh;
-        }
-        
-        /* Main dashboard container */
-        .dashboard-container {
+        }          
+        .dashboard-container {    /* Main dashboard container */
             background: #fff;
             border-radius: 18px;
             padding: 40px 36px;
             margin: 40px auto;
             max-width: 1100px;
             box-shadow: 0 6px 32px rgba(0,0,0,0.09);
-        }
-        
-        /* Dashboard header styling */
-        .dashboard-header {
+        }           
+        .dashboard-header {         /* Dashboard header styling */
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 32px;
-        }
-        
-        /* Dashboard title style */
-        .dashboard-title {
+        }         
+        .dashboard-title {       /* Dashboard title style */
             font-weight: 600;
             font-size: 2.1rem;
             color: #22223b;
             letter-spacing: -1px;
-        }
-        
-        /* Action buttons spacing */
-        .dashboard-actions a {
+        }           
+        .dashboard-actions a {         /* Action buttons spacing */
             margin-left: 12px;
-        }
-        
-        /* Result message area */
-        #result {
+        }         
+        #result {      /* Result message area */
             margin-bottom: 20px;
-        }
-        
-        /* Card sections styling */
-        .card-section {
+        }          
+        .card-section {                /* Card sections styling */
             background: #f7fafd;
             border-radius: 14px;
             padding: 28px 24px;
             margin-bottom: 28px;
             box-shadow: 0 2px 8px rgba(118,75,162,0.06);
-        }
-        
-        /* Section label styling */
-        .section-label {
+        }           
+        .section-label {                /* Section label styling */
             font-weight: 600;
             color: #764ba2;
             margin-bottom: 8px;
-        }
-        
-        /* Live camera box styling */
-        #live_camera_box {
+        }          
+        #live_camera_box {             /* Live camera box styling */
             background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
             border-radius: 14px;
             padding: 18px;
             margin-bottom: 28px;
             box-shadow: 0 2px 12px rgba(118,75,162,0.10);
-        }
-        
-        /* Live camera feed styling */
-        #live_camera {
+        }          
+        #live_camera {                 /* Live camera feed styling */
             width: 100%;
             max-width: 420px;
             border-radius: 10px;
             box-shadow: 0 0 24px rgba(0,0,0,0.12);
             border: 4px solid #fff;
-        }
-        
-        /* Camera instruction text */
-        #direction_instruction {
+        }        
+        #direction_instruction {          /* Camera instruction text */
             font-size: 1.1em;
             color: #fff;
             margin-top: 14px;
             font-weight: 600;
             letter-spacing: 0.5px;
             text-shadow: 0 1px 4px rgba(0,0,0,0.12);
-        }
-        
-        /* Button styling */
-        .btn {
+        }       
+        .btn {                          /* Button styling */
             font-weight: 500;
             letter-spacing: 0.5px;
-        }
-        
-        /* Table header styling */
-        .table thead th {
+        }       
+        .table thead th {              /* Table header styling */
             background: #f1f3f7;
             color: #764ba2;
             font-weight: 600;
             border-top: none;
-        }
-        
-        /* Table row styling */
-        .table-bordered>tbody>tr>td {
+        }          
+        .table-bordered>tbody>tr>td {        /* Table row styling */
             background: #fafbfc;
-        }
-        
-        /* Icon buttons styling */
-        .icon-btn {
+        }           
+        .icon-btn {                       /* Icon buttons styling */
             background: none;
             border: none;
             padding: 0;
             color: #764ba2;
             vertical-align: middle;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 900px) {
+        }          
+        @media (max-width: 900px) {         /* Responsive adjustments */
             .dashboard-container { padding: 20px 6px; }
             #live_camera { max-width: 100%; }
         }
     </style>
 </head>
 <body>
-<div class="dashboard-container">
-    <!-- Dashboard header with title and action buttons -->
-    <div class="dashboard-header">
+<div class="dashboard-container">   
+    <div class="dashboard-header">   <!-- Dashboard header with title and action buttons -->
         <span class="dashboard-title"><i data-feather="activity"></i> Face Recognition System</span>
-        <div class="dashboard-actions">
-            <!-- Export CSV button -->
-            <a href="/export_csv" class="btn btn-outline-primary btn-sm"><i data-feather="download"></i> Export CSV</a>
-            <!-- Logout button -->
-            <a href="/logout" class="btn btn-outline-secondary btn-sm"><i data-feather="log-out"></i> Logout</a>
+        <div class="dashboard-actions">    
+            <a href="/export_csv" class="btn btn-outline-primary btn-sm"><i data-feather="download"></i> Export CSV</a>   <!-- Export CSV button -->    
+            <a href="/logout" class="btn btn-outline-secondary btn-sm"><i data-feather="log-out"></i> Logout</a>   <!-- Logout button -->
         </div>
     </div>
-
-    <!-- Area for displaying messages/notifications -->
-    <div id="result"></div>
-
-    <!-- Live camera feed section -->
-    <div id="live_camera_box" class="text-center">
-        <!-- Video feed from Flask server -->
-        <img id="live_camera" src="{{ url_for('video_feed') }}" alt="Live Camera Feed">
-        <!-- Instructions for user during capture -->
-        <div id="direction_instruction"></div>
+    <div id="result"></div> <!-- Area for displaying messages/notifications -->
+    <div id="live_camera_box" class="text-center">   <!-- Live camera feed section -->   
+        <img id="live_camera" src="{{ url_for('video_feed') }}" alt="Live Camera Feed">   <!-- Video feed from Flask server -->   
+        <div id="direction_instruction"></div>    <!-- Instructions for user during capture -->
     </div>
-
-    <!-- Face capture section -->
-    <div class="card-section">
+    <div class="card-section">     <!-- Face capture section -->
         <div class="row g-3 align-items-end">
             <div class="col-md-4">
-                <label class="section-label">Person Name</label>
-                <!-- Input for person's name -->
-                <input type="text" id="person_name" class="form-control" placeholder="Enter Name">
+                <label class="section-label">Person Name</label>           
+                <input type="text" id="person_name" class="form-control" placeholder="Enter Name">  <!-- Input for person's name -->
             </div>
             <div class="col-md-8">
                 <div class="d-flex flex-wrap gap-2">
                     <!-- Buttons for face capture process -->
                     <button class="btn btn-success" id="start_capture_btn"><i data-feather="play-circle"></i> Start Capture</button>
                     <button class="btn btn-primary" id="capture_btn" disabled><i data-feather="camera"></i> Capture Photo</button>
-                    <button class="btn btn-danger" id="stop_capture_btn" disabled><i data-feather="square"></i> Stop Capture</button>
+                    <button class="btn btn-danger" id="stop_capture_btn"><i data-feather="square"></i> Stop Capture</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Photo upload section -->
-    <div class="card-section">
+    <div class="card-section">     <!-- Photo upload section -->
         <div class="row g-3 align-items-end">
             <div class="col-md-4">
-                <label class="section-label">Upload Photo</label>
-                <!-- File input for uploading images -->
-                <input type="file" id="upload_image" class="form-control">
+                <label class="section-label">Upload Photo</label>        
+                <input type="file" id="upload_image" class="form-control">   <!-- File input for uploading images -->
             </div>
-            <div class="col-md-4">
-                <!-- Button to trigger photo upload -->
-                <button class="btn btn-success w-100" onclick="uploadPhoto()"><i data-feather="upload"></i> Upload Photo</button>
+            <div class="col-md-4">          
+                <button class="btn btn-success w-100" onclick="uploadPhoto()"><i data-feather="upload"></i> Upload Photo</button>    <!-- Button to trigger photo upload -->
             </div>
         </div>
     </div>
-
-    <!-- System operations section -->
-    <div class="card-section">
+    <div class="card-section">      <!-- System operations section -->
         <div class="row g-3 align-items-end">
-            <div class="col-md-4">
-                <!-- Button to generate face encodings -->
-                <button class="btn btn-warning w-100" onclick="generateEncodings()"><i data-feather="cpu"></i> Generate Encodings</button>
+            <div class="col-md-4">          
+                <button class="btn btn-warning w-100" onclick="generateEncodings()"><i data-feather="cpu"></i> Generate Encodings</button>  <!-- Button to generate face encodings -->
             </div>
-            <div class="col-md-4">
-                <!-- Button to test recognition -->
-                <button class="btn btn-info w-100" onclick="testRecognition()"><i data-feather="search"></i> Test Recognition</button>
+            <div class="col-md-4">           
+                <button class="btn btn-info w-100" onclick="testRecognition()"><i data-feather="search"></i> Test Recognition</button>   <!-- Button to test recognition -->
             </div>
-            <div class="col-md-4">
-                <!-- Button to start live attendance tracking -->
-                <button class="btn btn-dark w-100" onclick="openPopup('/popup_real_time_attendance',800,600)">
+            <div class="col-md-4">           
+                <button class="btn btn-dark w-100" onclick="openPopup('/popup_real_time_attendance',800,600)">      <!-- Button to start live attendance tracking -->
                     <i data-feather="clock"></i> Start Live Attendance
                 </button>
             </div>
         </div>
     </div>
-
-    <!-- Attendance actions section -->
-    <div class="card-section">
+    <div class="card-section">   <!-- Attendance actions section -->
         <div class="row g-3 align-items-end">
-            <div class="col-md-6">
-                <!-- Manual attendance marking -->
-                <button class="btn btn-outline-success w-100" onclick="markAttendance()"><i data-feather="user-check"></i> Mark Attendance</button>
+            <div class="col-md-6">           
+                <button class="btn btn-outline-success w-100" onclick="markAttendance()"><i data-feather="user-check"></i> Mark Attendance</button>    <!-- Manual attendance marking -->
             </div>
-            <div class="col-md-6">
-                <!-- Remove person from system -->
-                <button class="btn btn-outline-danger w-100" onclick="removePerson()"><i data-feather="user-x"></i> Remove Person</button>
+            <div class="col-md-6">            
+                <button class="btn btn-outline-danger w-100" onclick="removePerson()"><i data-feather="user-x"></i> Remove Person</button>   <!-- Remove person from system -->
             </div>
         </div>
     </div>
-
     <hr class="my-4">
-
-    <!-- Attendance filter section -->
-     <div class="card-section mb-3">
+     <div class="card-section mb-3">  <!-- Attendance filter section -->
         <form class="row g-3 align-items-end" id="filter_form" method="get" action="">
             <div class="col-md-4">
-                <label class="section-label">Filter by Name</label>
-                <!-- Input to filter by person's name -->
-                <input type="text" class="form-control" name="filter_name" id="filter_name" placeholder="Enter Name" value="{{ request.args.get('filter_name', '') }}">
+                <label class="section-label">Filter by Name</label>           
+                <input type="text" class="form-control" name="filter_name" id="filter_name" placeholder="Enter Name" value="{{ request.args.get('filter_name', '') }}">  <!-- Input to filter by person's name -->
             </div>
             <div class="col-md-4">
-                <label class="section-label">Filter by Date</label>
-                <!-- Input to filter by date -->
+                <label class="section-label">Filter by Date</label>   <!-- Input to filter by date -->        
                 <input type="date" class="form-control" name="filter_date" id="filter_date" value="{{ request.args.get('filter_date', '') }}">
             </div>
-            <div class="col-md-4 d-flex gap-2">
-                <!-- Apply filters button -->
-                <button type="submit" class="btn btn-primary w-100"><i data-feather="filter"></i> Apply Filter</button>
-                <!-- Clear filters button -->
-                <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary w-100"><i data-feather="x-circle"></i> Clear</a>
+            <div class="col-md-4 d-flex gap-2">        
+                <button type="submit" class="btn btn-primary w-100"><i data-feather="filter"></i> Apply Filter</button>     <!-- Apply filters button -->        
+                <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary w-100"><i data-feather="x-circle"></i> Clear</a>      <!-- Clear filters button -->
             </div>
         </form>
     </div>
-
-    <!-- Attendance records display -->
-    <h4 class="mb-3" style="color:#764ba2;font-weight:600;"><i data-feather="list"></i> Attendance Records</h4>
+    <h4 class="mb-3" style="color:#764ba2;font-weight:600;"><i data-feather="list"></i> Attendance Records</h4>    <!-- Attendance records display -->
     <div class="table-responsive">
         <table class="table table-bordered align-middle">
             <thead>
@@ -258,9 +190,8 @@
                     <th>Name</th><th>Date</th><th>Entry Time</th><th>Exit Time</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Loop through attendance records from Flask -->
-                {% for record in attendance_records %}
+            <tbody>        
+                {% for record in attendance_records %}     <!-- Loop through attendance records from Flask -->
                 <tr>
                     <td>{{ record.name }}</td>
                     <td>{{ record.date }}</td>
@@ -272,7 +203,6 @@
         </table>
     </div>
 </div>
-
 <!-- Modal for video popups -->
 <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -282,88 +212,56 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="stopVideoFeed()"></button>
       </div>
       <div class="modal-body text-center">
-        <!-- Video feed container -->
-        <img id="videoFeed" src="" alt="Video Feed" style="width:100%; max-height:70vh; object-fit:contain; border-radius:12px; box-shadow:0 0 16px rgba(0,0,0,0.15);">
+        <img id="videoFeed" src="" alt="Video Feed" style="width:100%; max-height:70vh; object-fit:contain; border-radius:12px; box-shadow:0 0 16px rgba(0,0,0,0.15);">  <!-- Video feed container -->
       </div>
     </div>
   </div>
 </div>
-
-<!-- Bootstrap JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JavaScript -->
 <script>
-// Initialize feather icons
-feather.replace();
-
-/**
- * Opens a new browser popup window
- * @param {string} url - URL to open
- * @param {number} width - Window width
- * @param {number} height - Window height
- */
+feather.replace(); // Initialize feather icons
+/* Opens a new browser popup window , @param {string} url - URL to open , @param {number} width - Window width , @param {number} height - Window height */
 function openPopup(url, width=600, height=600) {
     window.open(url, '_blank', `width=${width},height=${height}`);
 }
-
-/**
- * Shows result messages in the UI
- * @param {string} msg - Message to display
- * @param {boolean} success - Whether it's a success message
- */
+/* Shows result messages in the UI , @param {string} msg - Message to display , @param {boolean} success - Whether it's a success message */
 function showResult(msg, success=true) {
     document.getElementById('result').innerHTML =
         `<div class="alert alert-${success ? 'success' : 'danger'} shadow-sm">${msg}</div>`;
     speak(msg); // Also speak the message
 }
-
-/**
- * Uses browser speech synthesis to speak messages
- * @param {string} text - Text to speak
- */
+/* Uses browser speech synthesis to speak messages , @param {string} text - Text to speak */
 function speak(text) {
     if ('speechSynthesis' in window && text) {
         let utter = new SpeechSynthesisUtterance(text);
         window.speechSynthesis.speak(utter);
     }
 }
-
 // --- Multi-photo capture session logic ---
 let captureActive = false; // Track if capture is in progress
-
-/**
- * Start the face capture process
- */
+/* Start the face capture process */
 document.getElementById('start_capture_btn').onclick = async function() {
     const person_name = document.getElementById('person_name').value.trim();
-    if (!person_name) return showResult("Enter person name", false);
-    
-    // Start capture session via API
-    const res = await fetch('/start_capture', {method: 'POST'});
+    if (!person_name) return showResult("Enter person name", false);  
+    const res = await fetch('/start_capture', {method: 'POST'});  // Start capture session via API
     const data = await res.json();
-    
     if (data.success) {
         captureActive = true;
         // Enable/disable buttons
         document.getElementById('capture_btn').disabled = false;
-        document.getElementById('stop_capture_btn').disabled = false;
         document.getElementById('start_capture_btn').disabled = true;
-        // Show capture instructions
-        document.getElementById('direction_instruction').innerText = data.instruction;
+        document.getElementById('direction_instruction').innerText = data.instruction; // Show capture instructions
         speak(data.instruction); // Speak instruction
         showResult(data.message, true);
     } else {
         showResult(data.message, false);
     }
 };
-
-/**
- * Capture a single photo during session
- */
+/* Capture a single photo during session */
 document.getElementById('capture_btn').onclick = async function() {
     if (!captureActive) return;
     const person_name = document.getElementById('person_name').value.trim();
     if (!person_name) return showResult("Enter person name", false);
-    
     // Capture photo via API
     const res = await fetch('/capture_photo', {
         method: 'POST',
@@ -371,38 +269,28 @@ document.getElementById('capture_btn').onclick = async function() {
         body: JSON.stringify({person_name})
     });
     const data = await res.json();
-    
     showResult(data.message, data.success);
     if (data.instruction) {
-        // Update instructions
-        document.getElementById('direction_instruction').innerText = data.instruction;
+        document.getElementById('direction_instruction').innerText = data.instruction; // Update instructions
         speak(data.instruction);
     } else {
         document.getElementById('direction_instruction').innerText = "";
     }
-    if (data.finished) {
-        // Disable capture if session complete
-        document.getElementById('capture_btn').disabled = true;
+    if (data.finished) {  
+        document.getElementById('capture_btn').disabled = true; // Disable capture if session complete
     }
 };
-
-/**
- * Stop the capture session
- */
+/* Stop the capture session */
 document.getElementById('stop_capture_btn').onclick = async function() {
-    // Stop capture via API
-    const res = await fetch('/stop_capture', {method: 'POST'});
+    const res = await fetch('/stop_capture', {method: 'POST'});   // Stop capture via API
     const data = await res.json();
-    
     showResult(data.message, data.success);
     captureActive = false;
     // Reset button states
     document.getElementById('capture_btn').disabled = true;
-    document.getElementById('stop_capture_btn').disabled = true;
     document.getElementById('start_capture_btn').disabled = false;
     document.getElementById('direction_instruction').innerText = "";
 };
-
 // Capture photo when Enter key is pressed
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -411,20 +299,15 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
-
-/**
- * Upload a photo for a person
- */
+/*Upload a photo for a person*/
 function uploadPhoto() {
     const person_name = document.getElementById('person_name').value.trim();
     const image = document.getElementById('upload_image').files[0];
     if (!person_name || !image) return showResult("Select person name and image", false);
-
     // Prepare form data
     let formData = new FormData();
     formData.append('person_name', person_name);
     formData.append('image', image);
-
     // Send upload request
     fetch('/upload_photo', {
         method: 'POST',
@@ -433,23 +316,16 @@ function uploadPhoto() {
     .then(r => r.json())
     .then(data => showResult(data.message, data.success));
 }
-
-/**
- * Generate face encodings from captured images
- */
+/*Generate face encodings from captured images */
 function generateEncodings() {
     fetch('/generate_encodings', { method: 'POST' })
     .then(r => r.json())
     .then(data => showResult(data.message, data.success));
 }
-
-/**
- * Manually mark attendance for a person
- */
+/*Manually mark attendance for a person*/
 function markAttendance() {
     const person_name = document.getElementById('person_name').value.trim();
     if (!person_name) return showResult("Enter person name", false);
-
     // Send mark attendance request
     fetch('/mark_attendance', {
         method: 'POST',
@@ -459,14 +335,10 @@ function markAttendance() {
     .then(r => r.json())
     .then(data => showResult(data.message, data.success));
 }
-
-/**
- * Remove a person from the system
- */
+/*Remove a person from the system*/
 function removePerson() {
     const person_name = document.getElementById('person_name').value.trim();
     if (!person_name) return showResult("Enter person name", false);
-
     // Send remove person request
     fetch('/remove_person', {
         method: 'POST',
@@ -476,29 +348,18 @@ function removePerson() {
     .then(r => r.json())
     .then(data => showResult(data.message, data.success));
 }
-
-/**
- * Show video in modal dialog
- * @param {string} feedUrl - Video feed URL
- * @param {string} title - Modal title
- */
+/*Show video in modal dialog, @param {string} feedUrl - Video feed URL, @param {string} title - Modal title*/
 function showVideoModal(feedUrl, title="Live Camera Feed") {
     document.getElementById('videoFeed').src = feedUrl;
     document.getElementById('videoModalLabel').textContent = title;
     var modal = new bootstrap.Modal(document.getElementById('videoModal'));
     modal.show();
 }
-
-/**
- * Stop video feed in modal
- */
+/*Stop video feed in modal*/
 function stopVideoFeed() {
     document.getElementById('videoFeed').src = "";
 }
-
-/**
- * Test face recognition functionality
- */
+/*Test face recognition functionality*/
 function testRecognition() {
     // Set system mode to recognition
     fetch('/set_mode', {
@@ -507,9 +368,8 @@ function testRecognition() {
         body: JSON.stringify({mode: 'recognition'})
     })
     .then(r => r.json())
-    .then(data => {
-        // Show recognition feed in modal
-        showVideoModal('/video_feed', "Test Recognition");
+    .then(data => {       
+        showVideoModal('/video_feed', "Test Recognition"); // Show recognition feed in modal
     });
 }
 </script>

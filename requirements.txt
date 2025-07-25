@@ -1,6 +1,5 @@
 opencv-python
 face-recognition
-dlib
 numpy
 pandas
 flask

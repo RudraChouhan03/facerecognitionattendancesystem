@@ -2,23 +2,9 @@
 
 ## 📝 About the Project
 
-A robust, real-time **face recognition-based attendance system** built with **Flask**, **OpenCV**, and **face_recognition**. This project enables automatic attendance marking, user management, live monitoring, and reporting—all from a modern web dashboard.
+A real-time **face recognition-based attendance system** built with **Flask**, **OpenCV**, and **face_recognition**. This project enables automatic attendance marking, user management, live monitoring, and reporting—all from a modern web dashboard.
 
-This system enables **automatic, contactless attendance marking** using facial recognition. It captures live video from a camera (webcam or CCTV), detects and recognizes faces, and logs attendance with timestamps. The web dashboard allows user registration, attendance monitoring, CSV export, and more.
-
-This project is designed to work with both CCTV cameras and a laptop webcam.
-
-- By default, the system uses your laptop webcam for face recognition and attendance.
-
-- To use a CCTV camera as the video source:
-
-* Check the real_time_recognition.py file, where the code for CCTV integration is provided.
-
-* In the real_time_attendance.py file, simply uncomment the relevant CCTV camera code and comment out the camera_indices (webcam) code.
-
-* No other changes are needed in any files.
-
-This makes it easy to switch between webcam and CCTV sources based on your setup.
+This system enables **automatic, contactless attendance marking** using facial recognition. It captures live video from a camera (webcam), detects and recognizes faces, and logs attendance with timestamps. The web dashboard allows user registration, attendance monitoring, CSV export, and more.
 
 To make this project accessible to everyone—including non-technical users—I have included clear single-line and multi-line comments throughout every file. These comments explain the purpose and functionality of the code step by step, making it easy to understand and modify.
 
@@ -59,7 +45,7 @@ face_recognision/                         # 🔸 Main project folder
 │   ├── database_utils.py                # Functions for logging to DB
 │   └── __init__.py                      # (likely empty or for structure)
 │
-├── dataset/                              # 🔸 Person-wise folders (30 images each) 
+├── dataset/                              # 🔸 Person-wise folders (5 images each) 
 │   └── person_name/                      # e.g., /rudra/ with images
 │
 ├── encodings/                            # 🔸 Saved face encodings
@@ -67,10 +53,9 @@ face_recognision/                         # 🔸 Main project folder
 |
 ├── exports/                              # 🔸 CSV exports
 │
-├── models/                               # 🔸 All face/liveness detection models
-│   ├── dlib_face_recognition_resnet_model_v1.dat
+├── models/                               # 🔸 Face/liveness detection model
 │   ├── face_detection_yunet_2023mar.onnx
-│   ├── modelrgb.onnx
+|   ├── modelrgb.onnx
 │
 ├── static/                               # 🔸 Static assets
     └── thumbnails/                       # stores the best photo as per model
@@ -174,6 +159,9 @@ Password: rudra123
 - Default credentials must be changed before production
 - This app is for small-scale deployment and education
 - For scaling, consider GPU use or cloud deployment
+- DISCLAIMER: This application is not optimized for detecting or recognizing faces in rapid motion.
+- Accuracy may significantly decrease when subjects are moving quickly or the image is blurred.
+- It happens becuase this project is built without the gpu. So, high accuracy model is not used.
 
 ---
 
@@ -187,5 +175,3 @@ Feel free to fork, raise issues, or submit PRs.
 - Email: rudrachouhan0305@gmail.com
 - LinkedIn: https://www.linkedin.com/in/rudrachouhan
 - Mobile No.: +91 7549019916
-
-- Purpose: Internship/company project 

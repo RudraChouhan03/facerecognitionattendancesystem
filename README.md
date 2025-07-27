@@ -26,7 +26,7 @@ Special thanks to Perplexity AI for assisting me in generating and refining thes
 *Secure admin authentication with username and password*
 
 ### **Main Dashboard**
-![Admin Dashboard](docs/images/admin_dashboard.png)
+![Admin Dashboard](docs/images/admin_dashboard.jpg)
 *Complete attendance management with filtering and export options*
 
 ## 📁 Folder Structure

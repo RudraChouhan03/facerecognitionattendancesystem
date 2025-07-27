@@ -276,7 +276,7 @@ def generate_encodings():
     try:
         if not os.path.exists('encode_faces.py'):  # Check if the encoding script exists
             return jsonify({'success': False, 'message': 'encode_faces.py not found'})
-        subprocess.run(['python', 'encode_faces.py'], check=True)   # Run the encoding script
+        subprocess.run([sys.executable, 'encode_faces.py'], check=True)   # Run the encoding script
         load_face_encodings()  # Load the newly generated encodings
         return jsonify({'success': True, 'message': 'Encodings generated successfully!'})
     except Exception as e:
@@ -349,7 +349,7 @@ def remove_person():
             os.remove(thumbnail_path)
         if os.path.exists('encode_faces.py'):   # Regenerate face encodings without this person
             try:
-                subprocess.run(['python', 'encode_faces.py'], check=True)
+                subprocess.run([sys.executable, 'encode_faces.py'], check=True)
                 load_face_encodings()  # Reload encodings
             except Exception as e:
                 return jsonify({'success': False, 'message': f'Person removed but encoding regeneration failed: {e}'})
@@ -425,7 +425,7 @@ def popup_capture_faces():
     if 'logged_in' not in session:    # Check if user is logged in
         return redirect(url_for('login'))
     try:
-        subprocess.Popen(['python', 'capture_faces.py'])   # Start the capture faces script in a new process  
+        subprocess.Popen([sys.executable, 'capture_faces.py'])   # Start the capture faces script in a new process  
         return 
     except Exception as e:
         return f"<h3>Error launching capture_faces.py: {e}</h3>"
@@ -437,7 +437,7 @@ def popup_encode_faces():
     if 'logged_in' not in session:   # Check if user is logged in
         return redirect(url_for('login'))
     try:
-        subprocess.Popen(['python', 'encode_faces.py'])    # Start the encode faces script in a new process
+        subprocess.Popen([sys.executable, 'encode_faces.py'])    # Start the encode faces script in a new process
         return
     except Exception as e:
         return f"<h3>Error launching encode_faces.py: {e}</h3>"
@@ -449,7 +449,7 @@ def popup_real_time_attendance():
     if 'logged_in' not in session:   # Check if user is logged in
         return redirect(url_for('login'))
     try:
-        subprocess.Popen(['python', 'real_time_attendance.py'])     # Start the real-time attendance script in a new process
+        subprocess.Popen([sys.executable, 'real_time_attendance.py'])     # Start the real-time attendance script in a new process
         # Show alert and close popup
         return '''
         <script>

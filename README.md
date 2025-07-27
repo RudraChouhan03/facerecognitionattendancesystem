@@ -76,7 +76,7 @@ cd face-attendance-flask
 *face_recognition* is built on dlib, which does NOT yet support Python ≥ **3.11** reliably. *dlib* last stable builds work well up to Python **3.10**, newer versions are unstable or unavailable for 3.11+
 
 ```bash
-python -m venv venv   /   conda create --name venv python=3.10.18
+"(your path)\python.exe" -m venv venv   /   conda create --name venv python=3.10.18
 # Activate:
 # Linux/Mac:
 source venv/bin/activate  /   conda activate face_env
@@ -104,12 +104,17 @@ Ensure these folders exist (create if missing):
 - `models/`
 - `static/thumbnails/`
 
+5. **Once run**
+```bash
+python database/create_attendance_db.py"
+```
+To create daily_attendance table so that when we run the app.py it does not raises an error *sqlite3.OperationalError: no such table: daily_attendance*.
 
-5. **Download & Place Models**
+6. **Download & Place Models**
 
 Put YuNet and liveness models inside the `models/` folder.
 
-6. **Start the Application**
+7. **Start the Application**
 ```bash
 python app.py
 ```

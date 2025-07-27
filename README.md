@@ -19,6 +19,16 @@ Special thanks to Perplexity AI for assisting me in generating and refining thes
 - Filtering attendance records by date and name
 - Admin authentication
 
+## 🖥️ **Web Interface Screenshots**
+
+### **Admin Login Page**
+![Admin Login](docs/images/login_page.png)
+*Secure admin authentication with username and password*
+
+### **Main Dashboard**
+![Admin Dashboard](docs/images/admin_dashboard.png)
+*Complete attendance management with filtering and export options*
+
 ## 📁 Folder Structure
 
 ```

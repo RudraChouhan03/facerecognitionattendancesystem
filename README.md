@@ -126,7 +126,7 @@ Put YuNet and liveness models inside the `models/` folder.
 
 7. **Start the Application**
 ```bash
-python app.py
+python dashboard/app.py
 ```
 Visit [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
